@@ -1,0 +1,248 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ */
+package Vista;
+
+import Modelo.*;
+import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+public class VerJPanel extends javax.swing.JPanel {
+
+    public VerJPanel(GestorClientes c) {
+        initComponents(); // Carga los componentes gráficos diseñados en NetBeans
+        cli = c;
+        
+        // Si el gestor no está vacío, nos situamos en el primer cliente al abrir la ventana
+        if (cli != null)
+            cli.irPrimero();
+        
+        // Rellenamos los campos de texto con los datos del cliente actual
+        actualizarVista();
+        
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jButtonAnterior = new javax.swing.JButton();
+        jButtonSiguiente = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+
+        jLabel1.setText("Nombre");
+
+        jLabel2.setText("Numero");
+
+        jLabel3.setText("Puntos");
+
+        jTextField1.setEditable(false);
+        jTextField1.setForeground(new java.awt.Color(255, 0, 0));
+        jTextField1.setText("jTextField1");
+
+        jTextField2.setEditable(false);
+        jTextField2.setText("jTextField2");
+
+        jTextField3.setEditable(false);
+        jTextField3.setText("jTextField2");
+        jTextField3.addActionListener(this::jTextField3ActionPerformed);
+
+        jButtonAnterior.setText("Anterior");
+        jButtonAnterior.addActionListener(this::jButtonAnteriorActionPerformed);
+
+        jButtonSiguiente.setText("Siguiente");
+        jButtonSiguiente.addActionListener(this::jButtonSiguienteActionPerformed);
+
+        jLabel4.setText("Fecha Nac.");
+
+        jTextField4.setEditable(false);
+        jTextField4.setText("jTextField2");
+        jTextField4.addActionListener(this::jTextField4ActionPerformed);
+
+        jLabel5.setText("Clientes");
+
+        jButton1.setText("Cambiar color");
+        jButton1.addActionListener(this::jButton1ActionPerformed);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jButtonAnterior)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(jButtonSiguiente)
+                .addGap(44, 44, 44))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addGap(52, 52, 52)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                        .addComponent(jTextField2)
+                        .addComponent(jTextField3)
+                        .addComponent(jTextField4)))
+                .addContainerGap(61, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAnterior)
+                    .addComponent(jButtonSiguiente)
+                    .addComponent(jButton1))
+                .addGap(44, 44, 44))
+        );
+
+        jLabel1.getAccessibleContext().setAccessibleName("Nombre");
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSiguienteActionPerformed
+        // Movemos el puntero al siguiente cliente en el gestor
+        cli.avanzar();
+        // Actualizamos los campos de la pantalla con los nuevos datos
+        actualizarVista();
+        
+        // Al avanzar, nos aseguramos de que el botón de "Anterior" se pueda pulsar
+        jButtonAnterior.setEnabled(true);
+        
+        // Si con este movimiento hemos llegado al final, desactivamos el botón "Siguiente"
+        if (cli.esUltimo()) {
+            jButtonSiguiente.setEnabled(false);
+        }
+    }//GEN-LAST:event_jButtonSiguienteActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jButtonAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnteriorActionPerformed
+        cli.retroceder();
+        actualizarVista();
+        
+        jButtonSiguiente.setEnabled(true);
+        
+        if (cli.esPrimero()) {
+            jButtonAnterior.setEnabled(false);
+        }
+    }//GEN-LAST:event_jButtonAnteriorActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+                // TODO add your handling code here:
+                jTextField1.setForeground(Color.black);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public void mostrarCliente(Cliente c, int posicion, int total) {
+        if (c == null) {
+            jTextField1.setText("");
+            jTextField2.setText("");
+            jTextField3.setText("");
+            jTextField4.setText("");
+            jLabel5.setText("No hay clientes");
+        } else {
+            jTextField1.setText(String.valueOf(c.getNumero()));
+            jTextField2.setText(c.getNombre());
+            jTextField3.setText(String.valueOf(c.getPuntos()));
+            
+            LocalDate fechaNac = c.getFechaNacimiento();
+            if (fechaNac != null) {
+                jTextField4.setText(fechaNac.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+            } else {
+                jTextField4.setText("");
+            }
+            jLabel5.setText("Cliente " + posicion + " de " + total);
+        }
+    }
+    
+    public void setNavegacion(boolean puedeAnterior, boolean puedeSiguiente) {
+        // Como mínimo, controlamos Anterior y Siguiente:
+        jButtonAnterior.setEnabled(puedeAnterior);
+        jButtonSiguiente.setEnabled(puedeSiguiente);
+    }
+
+    // Métodos Listeners
+    public void addAnteriorListener(ActionListener l) {
+        jButtonAnterior.addActionListener(l);
+    }
+
+    public void addSiguienteListener(ActionListener l) {
+        jButtonSiguiente.addActionListener(l);
+    }
+    
+    private void actualizarVista() {
+        if (cli != null && cli.getActual() != null) {
+            jTextField1.setText(cli.getActual().getNombre());
+            jTextField2.setText(String.valueOf(cli.getActual().getNumero()));
+            jTextField3.setText(String.valueOf(cli.getActual().getPuntos()));
+            
+            LocalDate fechaNac = cli.getActual().getFechaNacimiento();
+            if (fechaNac != null) {
+                jTextField4.setText(fechaNac.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+            } else {
+                jTextField4.setText("");
+            }
+        }
+    }
+    
+    private GestorClientes cli;
+    
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonAnterior;
+    private javax.swing.JButton jButtonSiguiente;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    // End of variables declaration//GEN-END:variables
+}
